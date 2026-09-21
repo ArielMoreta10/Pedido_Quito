@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>Amarillas 🌻</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         PANTALLA DE INICIO
+    ========================== -->
+
+    <div id="startScreen">
+
+        <div class="startFlower">🌻</div>
+
+        <h1>Para ti</h1>
+
+        <p>Pedido especial para Jessica</p>
+
+        <div class="tapHeart">🌻</div>
+
+    </div>
+
+
+    <!-- =========================
+         FONDO
+    ========================== -->
+
+    <div class="background">
+
+        <div id="floatingHearts"></div>
+
+    </div>
+
+
+    <!-- =========================
+         TARJETA
+    ========================== -->
+
+    <main class="card" id="card">
+
+        <!-- =====================
+             RAMO
+        ====================== -->
+
+        <section class="bouquetArea">
+
+            <div id="bouquet">
+
+                <!-- tallo principal -->
+
+                <div class="mainStem"></div>
+
+
+                <!-- flores generadas por JS -->
+
+                <div id="flowers"></div>
+
+            </div>
+
+            <div class="ground"></div>
+
+        </section>
+
+
+        <!-- =====================
+             CARTA
+        ====================== -->
+
+        <section class="letter">
+
+            <div class="paper">
+
+                <div class="letterTitle" id="title"></div>
+
+                <div class="letterText">
+
+                    <p id="text1"></p>
+
+                    <p id="text2"></p>
+
+                    <p id="text3"></p>
+
+                    <p id="text4" class="signature"></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================
+             CONTADOR
+        ====================== -->
+
+        <div class="counter">
+
+            <div>Siguientes Flores Amarillas..</div>
+
+            <strong id="counter">
+                0 días 0 horas 0 minutos 0 segundos
+            </strong>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1070 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+}
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ff5ca8,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            #ff0080,
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #c90068,
+            #ec007f,
+            #a90063
+        );
+
+}
+
+
+/* =========================================
+   PANTALLA DE INICIO
+========================================= */
+
+#startScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c90068,
+            #ed238c
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+#startScreen.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.startFlower {
+
+    font-size: 75px;
+
+    animation:
+        startFlowerAnimation
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+#startScreen h1 {
+
+    margin-top: 20px;
+
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+}
+
+#startScreen p {
+
+    margin-top: 12px;
+
+    font-size: 15px;
+
+    opacity: .9;
+
+}
+
+.tapHeart {
+
+    margin-top: 25px;
+
+    font-size: 42px;
+
+    animation:
+        heartbeat
+        1.4s
+        infinite;
+
+}
+
+
+@keyframes startFlowerAnimation {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px)
+            rotate(5deg);
+
+    }
+
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.25);
+
+    }
+
+}
+
+
+/* =========================================
+   FONDO
+========================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+}
+
+
+#floatingHearts {
+
+    position: absolute;
+
+    inset: 0;
+
+}
+
+
+.floatingHeart {
+
+    position: absolute;
+
+    bottom: -60px;
+
+    font-size: 20px;
+
+    opacity: .25;
+
+    animation:
+        floatingHeart
+        linear
+        infinite;
+
+}
+
+
+@keyframes floatingHeart {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: .3;
+
+    }
+
+    85% {
+
+        opacity: .3;
+
+    }
+
+    to {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================
+   TARJETA
+========================================= */
+
+.card {
+
+    position: relative;
+
+    width: min(94vw, 1000px);
+
+    height: min(82vh, 650px);
+
+    overflow: hidden;
+
+    background: #f8eee1;
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, .35);
+
+    opacity: 0;
+
+    transform: scale(.9);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+
+}
+
+
+.card.show {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+}
+
+
+/* =========================================
+   ZONA DEL RAMO
+========================================= */
+
+.bouquetArea {
+
+    position: absolute;
+
+    right: 3%;
+
+    top: 4%;
+
+    width: 57%;
+
+    height: 90%;
+
+}
+
+
+#bouquet {
+
+    position: absolute;
+
+    inset: 0;
+
+    transition:
+        transform 2.5s
+        cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+/*
+   Después de crear todas
+   las flores, el ramo se
+   mueve hacia la derecha.
+*/
+
+#bouquet.moveRight {
+
+    transform:
+        translateX(13%);
+
+}
+
+
+/* =========================================
+   SUELO
+========================================= */
+
+.ground {
+
+    position: absolute;
+
+    bottom: 8%;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 2px;
+
+    background: #493b34;
+
+}
+
+
+/* =========================================
+   TALLO PRINCIPAL
+========================================= */
+
+.mainStem {
+
+    position: absolute;
+
+    bottom: 8%;
+
+    left: 50%;
+
+    width: 22px;
+
+    height: 0;
+
+    transform:
+        translateX(-50%);
+
+    transform-origin: bottom;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #61351c,
+            #a65b27,
+            #61351c
+        );
+
+    box-shadow:
+        2px 0 4px
+        rgba(0,0,0,.15);
+
+    z-index: 3;
+
+    transition:
+        height 2.5s
+        cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.card.grow .mainStem {
+
+    height: 55%;
+
+}
+
+
+/* =========================================
+   HOJAS
+========================================= */
+
+.leaf {
+
+    position: absolute;
+
+    width: 65px;
+
+    height: 30px;
+
+    border-radius:
+        100% 0 100% 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d9c32,
+            #3e7025
+        );
+
+    opacity: 0;
+
+    z-index: 2;
+
+    transition:
+        opacity 1s ease;
+
+}
+
+
+.card.grow .leaf {
+
+    opacity: 1;
+
+}
+
+
+.leaf1 {
+
+    left: 37%;
+
+    bottom: 30%;
+
+    transform:
+        rotate(-25deg);
+
+}
+
+
+.leaf2 {
+
+    left: 51%;
+
+    bottom: 39%;
+
+    transform:
+        rotate(25deg)
+        scaleX(-1);
+
+}
+
+
+.leaf3 {
+
+    left: 42%;
+
+    bottom: 48%;
+
+    transform:
+        rotate(-20deg);
+
+}
+
+
+/* =========================================
+   FLORES
+========================================= */
+
+#flowers {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+}
+
+
+/*
+    Cada flor es un conjunto
+    de pétalos.
+*/
+
+.flower {
+
+    position: absolute;
+
+    width: 30px;
+
+    height: 30px;
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    transition:
+        opacity .45s ease,
+        transform .45s
+        cubic-bezier(.2,1.4,.4,1);
+
+}
+
+
+.flower.visible {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+}
+
+
+/* pétalos */
+
+.flower .petal {
+
+    position: absolute;
+
+    width: 15px;
+
+    height: 15px;
+
+    left: 7.5px;
+
+    top: 7.5px;
+
+    border-radius: 50% 50% 45% 45%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe85a,
+            #f7b800
+        );
+
+    transform-origin:
+        50% 50%;
+
+}
+
+
+.flower .p1 {
+
+    transform:
+        translateY(-8px);
+
+}
+
+.flower .p2 {
+
+    transform:
+        rotate(45deg)
+        translateY(-8px);
+
+}
+
+.flower .p3 {
+
+    transform:
+        rotate(90deg)
+        translateY(-8px);
+
+}
+
+.flower .p4 {
+
+    transform:
+        rotate(135deg)
+        translateY(-8px);
+
+}
+
+.flower .p5 {
+
+    transform:
+        rotate(180deg)
+        translateY(-8px);
+
+}
+
+.flower .p6 {
+
+    transform:
+        rotate(225deg)
+        translateY(-8px);
+
+}
+
+.flower .p7 {
+
+    transform:
+        rotate(270deg)
+        translateY(-8px);
+
+}
+
+.flower .p8 {
+
+    transform:
+        rotate(315deg)
+        translateY(-8px);
+
+}
+
+
+/* centro */
+
+.flower .center {
+
+    position: absolute;
+
+    width: 11px;
+
+    height: 11px;
+
+    left: 9.5px;
+
+    top: 9.5px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #3b1d09 0%,
+            #63300e 60%,
+            #2a1507 100%
+        );
+
+    box-shadow:
+        0 1px 3px
+        rgba(0,0,0,.4);
+
+    z-index: 10;
+
+}
+
+
+/* =========================================
+   CARTA
+========================================= */
+
+.letter {
+
+    position: absolute;
+
+    left: 5%;
+
+    top: 13%;
+
+    width: 38%;
+
+    min-height: 65%;
+
+    display: flex;
+
+    align-items: center;
+
+    opacity: 0;
+
+    transform:
+        translateX(-35px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+
+    z-index: 20;
+
+}
+
+
+.card.letterVisible .letter {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+}
+
+
+/* papel */
+
+.paper {
+
+    width: 100%;
+
+    padding: 25px 22px;
+
+    color: #4b4039;
+
+}
+
+
+/* =========================================
+   TEXTO
+========================================= */
+
+.letterTitle {
+
+    min-height: 32px;
+
+    margin-bottom: 20px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(17px, 2vw, 25px);
+
+    color: #633b29;
+
+    font-weight: bold;
+
+}
+
+
+.letterText {
+
+    font-family:
+        "Segoe Print",
+        "Comic Sans MS",
+        cursive;
+
+    font-size:
+        clamp(12px, 1.45vw, 17px);
+
+    line-height: 1.8;
+
+}
+
+
+.letterText p {
+
+    min-height: 20px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.signature {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+    color: #9b4e27;
+
+    font-size: 1.15em;
+
+}
+
+
+/* =========================================
+   CONTADOR
+========================================= */
+
+.counter {
+
+    position: absolute;
+
+    left: 5%;
+
+    bottom: 18px;
+
+    width: 38%;
+
+    text-align: center;
+
+    font-size:
+        clamp(9px, 1.2vw, 13px);
+
+    color: #71645b;
+
+    z-index: 30;
+
+}
+
+
+.counter strong {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-weight: normal;
+
+}
+
+
+/* =========================================
+   BRILLO DE LAS FLORES
+========================================= */
+
+.card.finished .flower {
+
+    animation:
+        flowerGlow
+        2.5s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+@keyframes flowerGlow {
+
+    from {
+
+        filter:
+            brightness(1);
+
+    }
+
+    to {
+
+        filter:
+            brightness(1.12)
+            drop-shadow(
+                0 0 5px
+                rgba(255,193,7,.4)
+            );
+
+    }
+
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 700px) {
+
+    .card {
+
+        width: 94vw;
+
+        height: 86vh;
+
+        border-radius: 26px;
+
+    }
+
+
+    .bouquetArea {
+
+        right: -3%;
+
+        top: 3%;
+
+        width: 62%;
+
+        height: 75%;
+
+    }
+
+
+    #bouquet.moveRight {
+
+        transform:
+            translateX(8%);
+
+    }
+
+
+    .letter {
+
+        left: 4%;
+
+        top: 13%;
+
+        width: 43%;
+
+        min-height: 65%;
+
+    }
+
+
+    .paper {
+
+        padding:
+            12px 5px;
+
+    }
+
+
+    .letterTitle {
+
+        font-size: 15px;
+
+        margin-bottom: 12px;
+
+    }
+
+
+    .letterText {
+
+        font-size: 10.5px;
+
+        line-height: 1.65;
+
+    }
+
+
+    .letterText p {
+
+        margin-bottom: 9px;
+
+    }
+
+
+    .signature {
+
+        margin-top: 18px;
+
+    }
+
+
+    .counter {
+
+        left: 4%;
+
+        width: 43%;
+
+        bottom: 12px;
+
+        font-size: 8px;
+
+    }
+
+
+    .flower {
+
+        width: 23px;
+
+        height: 23px;
+
+    }
+
+
+    .flower .petal {
+
+        width: 12px;
+
+        height: 12px;
+
+        left: 5.5px;
+
+        top: 5.5px;
+
+    }
+
+
+    .flower .center {
+
+        width: 9px;
+
+        height: 9px;
+
+        left: 7px;
+
+        top: 7px;
+
+    }
+
+
+    .mainStem {
+
+        width: 16px;
+
+    }
+
+
+    .leaf {
+
+        width: 45px;
+
+        height: 22px;
+
+    }
+
+}
+
+
+/* =========================================
+   PANTALLAS MUY PEQUEÑAS
+========================================= */
+
+@media (max-width: 400px) {
+
+    .letterText {
+
+        font-size: 9px;
+
+    }
+
+
+    .letterTitle {
+
+        font-size: 13px;
+
+    }
+
+
+    .flower {
+
+        width: 20px;
+
+        height: 20px;
+
+    }
+
+
+    .counter {
+
+        font-size: 7px;
+
+    }
+
+}
